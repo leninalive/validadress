@@ -33,8 +33,8 @@ class App extends Component {
     render() {
 
         const isAuth = window.location.pathname.includes('auth');
-        const isSined = window.location.pathname.includes('signed');
-        const isSend = !isAuth && !isSined;
+        const isCreate = window.location.pathname.includes('create');
+        const isSend = !isAuth && !isCreate;
 
         return (
             <div className="App">
@@ -43,7 +43,7 @@ class App extends Component {
                 </div>
                 {isSend ? <Send data={this.state.data}/> : null}
                 {isAuth ? <Approve/> : null}
-                {isSined ? <Sign/> : null}
+                {isCreate ? <Sign/> : null}
             </div>
         );
     }
