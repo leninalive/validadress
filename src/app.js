@@ -20,5 +20,5 @@ require('http').createServer(function (request, response) {
 }).listen(8080);
 
 function getIndexHtml() {
-    return fs.readFileSync(__dirname + '/../template/index.htm').toString();
+    return fs.readFileSync(__dirname + '/../build/index.htm').toString();
 }

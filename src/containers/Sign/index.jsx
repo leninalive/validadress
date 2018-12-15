@@ -32,7 +32,7 @@ class Sign extends React.Component {
     }
 
     static fillAuthLink(dataForSign) {
-        const r = encodeURIComponent(`https:/localhost:3000/auth?email=${dataForSign.email}`);
+        const r = encodeURIComponent(`https:/${window.location.host}/auth?email=${dataForSign.email}`);
         const n = encodeURIComponent('EmailTransfer');
         const d = encodeURIComponent(dataForSign.email.trim());
         const i = encodeURIComponent('https://trustamust.com/file/2018/08/trust8.png'.trim());

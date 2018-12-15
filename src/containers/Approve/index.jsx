@@ -7,23 +7,32 @@ class Approve extends React.Component {
         const url = new URL(window.location);
         const email = url.searchParams.get('email');
         const address = url.searchParams.get('a');
+        const publicKey = url.searchParams.get('p');
+        const signature = url.searchParams.get('s');
+
+        if (!email || !address) {
+            window.location.pathname = '/';
+            return this;
+        }
 
         this.state = {
             email,
-            address
+            address,
+            publicKey,
+            signature
         }
     }
 
     render() {
         return <div>
             <div>
-                Email <span>{this.state.email}</span>
+                <p>Email <span>{this.state.email}</span></p>
             </div>
             <div>
-                Address <span>{this.state.address}</span>
+                <p>Address <span>{this.state.address}</span></p>
             </div>
 
-            <button>Send</button>
+            <p><button onClick={this.props.onClick({ ...this.state })}>Send</button></p>
         </div>;
     }
 };

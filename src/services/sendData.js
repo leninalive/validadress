@@ -4,7 +4,7 @@ import { getUrl } from './utils';
 
 
 export function emailAuth(data) {
-    return request.post('email', data);
+    return request.post('/email', data);
 }
 
 export function setNodeData(tx, server = NODE) {

@@ -6,11 +6,17 @@ import './App.css';
 import { NODE, ORACLE_ADDRESS, ORACLE_TMP_SEED } from './constants';
 import WService from './services/signService';
 import { getNodeData } from './services/getData';
-import { setTx } from './services/sendData';
+import { setTx, emailAuth } from './services/sendData';
 
 
 
 class App extends Component {
+
+    approveHandler = (data) => {
+        emailAuth(data).then(() => {
+            this.setState({ confirm: true })
+        })
+    };
 
     constructor(props) {
         super(props);
@@ -42,7 +48,7 @@ class App extends Component {
                     <p>ORACLE NODE: {this.state.address}</p>
                 </div>
                 {isSend ? <Send data={this.state.data}/> : null}
-                {isAuth ? <Approve/> : null}
+                {isAuth ? <Approve onClick={this.approveHandler} confirm={this.state.confirm}/> : null}
                 {isCreate ? <Sign/> : null}
             </div>
         );
