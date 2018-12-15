@@ -9,6 +9,7 @@ class Approve extends React.Component {
         const address = url.searchParams.get('a');
         const publicKey = url.searchParams.get('p');
         const signature = url.searchParams.get('s');
+        const referer = `https://${window.location.host}?email=${email}`;
 
         if (!email || !address) {
             window.location.pathname = '/';
@@ -19,7 +20,10 @@ class Approve extends React.Component {
             email,
             address,
             publicKey,
-            signature
+            signature,
+            referer,
+            data: email,
+            name: 'EmailTransfer',
         }
     }
 
@@ -32,7 +36,7 @@ class Approve extends React.Component {
                 <p>Address <span>{this.state.address}</span></p>
             </div>
 
-            <p><button onClick={this.props.onClick({ ...this.state })}>Send</button></p>
+            <p><button onClick={() => this.props.onClick({ ...this.state })}>Send</button></p>
         </div>;
     }
 };
