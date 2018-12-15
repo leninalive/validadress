@@ -22,7 +22,9 @@
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "superagent": "^4.0.0"
+    "superagent": "^4.0.0",
+    "waves-crypto": "^1.0.39",
+    "waves-transactions": "^3.0.0-alpha.2"
   },
   "eslintConfig": {
     "extends": "react-app"
